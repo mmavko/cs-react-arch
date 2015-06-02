@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png"  href="http://www.google.com/images/google_favicon_128.png" />
+    <title>ClojureScript React app architecture</title>
+    <style>
+      #app-container {
+        width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        box-shadow: 0px 0px 20px 0px rgba(199,199,199,1);
+      }
+      code {background-color: bisque;}
+    </style>
+  </head>
+  <body>
+    <div id="app-container"></div>
+
+    <script type="text/javascript">
+      function GET(url, onload, onerror) {
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+        request.addEventListener("load", function() {
+          if (request.status >= 200 && request.status < 400)
+            onload(request.responseText);
+          else
+            onerror(request.status, request.statusText);
+        });
+        request.addEventListener("error", onerror);
+        request.send();
+      }
+
+      function loadConfig(handler) {
+        GET('config.js', function(configSource) {
+          var config = eval('(' + configSource + ')');
+          handler(config);
+        }, function () {
+          alert('Please create your "config.js" file.');
+        });
+      }
+    </script>
+
+    <script src="js/compiled/cs-react-arch.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      function configureApp(config) {
+        cs_react_arch.core.configure(config);
+      }
+
+      function renderApp() {
+        React.render(cs_react_arch.core.component(), document.getElementById('app-container'));
+      }
+
+      function unmountApp() {
+        React.unmountComponentAtNode(document.getElementById('app-container'));
+      }
+
+      window.onload = function () {
+        loadConfig(function (config) {
+          configureApp(config);
+          renderApp();
+        });
+      };
+    </script>
+  </body>
+</html>
