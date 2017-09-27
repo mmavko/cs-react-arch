@@ -1,5 +1,5 @@
 (ns cs-react-arch.components.b
-  (:require [rum]
+  (:require [rum.core :as rum]
             [cs-react-arch.shared :refer [raiser]]))
 
 (def raise! (raiser :b))

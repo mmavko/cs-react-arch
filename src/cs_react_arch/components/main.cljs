@@ -1,5 +1,5 @@
 (ns cs-react-arch.components.main
-  (:require [rum]
+  (:require [rum.core :as rum]
             [cs-react-arch.shared :refer [raiser]]
             [cs-react-arch.components.a :refer [A]]
             [cs-react-arch.components.b :refer [B]]))
