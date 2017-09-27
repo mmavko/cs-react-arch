@@ -49,11 +49,11 @@
       }
 
       function renderApp() {
-        React.render(cs_react_arch.core.component(), document.getElementById('app-container'));
+        ReactDOM.render(cs_react_arch.core.component(), document.getElementById('app-container'));
       }
 
       function unmountApp() {
-        React.unmountComponentAtNode(document.getElementById('app-container'));
+        ReactDOM.unmountComponentAtNode(document.getElementById('app-container'));
       }
 
       window.onload = function () {

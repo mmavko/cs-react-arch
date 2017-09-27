@@ -12,6 +12,7 @@ pom.xml
 .repl
 .nrepl-port
 *.sublime*
+.idea
 
 .DS_Store
 

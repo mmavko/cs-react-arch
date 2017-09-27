@@ -1,7 +1,7 @@
 (ns ^:figwheel-always cs-react-arch.core
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [cljs.core.async :refer [chan <! >!]]
-            [rum]
+            [rum.core :as rum]
             [cs-react-arch.world :refer [world-ref]]
             [cs-react-arch.shared :as shared]
             [cs-react-arch.components.common :refer [Wrapper]]

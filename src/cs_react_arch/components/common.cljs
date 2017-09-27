@@ -1,5 +1,5 @@
 (ns cs-react-arch.components.common
-  (:require [rum]))
+  (:require [rum.core :as rum]))
 
 (rum/defc Wrapper <
   (let [notify
